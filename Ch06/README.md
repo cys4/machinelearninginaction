@@ -1,28 +1,35 @@
 # MLiA Ch. 6: support vector machines
 
-## SVM 개요
-* 기본적으로 이진 & 선형 분류 => 여러 변형을 통하여 multinomial & 비선형 분류도 가능
-* (Deep learning에 상대적으로) shallow learning의 대표적인 방법
-* 장: generalization 성능 좋다 vs. 단: 기본적인 SVM은 이진 분류만 지원
+## 개요
+- Supervised learning, (deep learning에 상대적으로) shallow learning의 대표적인 방법
+- 장: generalization 성능 좋다
+- 단: 기본적인 SVM은 이진 & 선형 분류만 지원 (여러 변형 통해 multinomial & 비선형 분류도 가능)
 
-## 특징
-- Support vector: hyperplane(분류 결정 경계)에 가장 가까운 점들
-- Margin: support vector와 hyperplane 사이의 거리
-- 최적화: margin을 최대화하는 hyperplane을 구함 => 제한된 tranining data로부터 robust한 classifier를 얻어냄
+## Training
+- 주어진 training data에 대해 margin을 최대화하는 classifier을 구함
+  - Hyperplane: 분류 경계 형성하는 (n-1) 차원의 선형 이진 classifier($w\cdot x-b=0$)
+  - Support vector: hyperplane에 가장 가까운 점들($w\cdot x-b=1$, $w\cdot x-b=-1$)
+  - Margin: support vector와 hyperplane 사이의 거리 ($2 \over ||w||$)
+- 다음의 constrained optimization 문제로 귀결됨
+  - Lagrange multiplier 이용
+  > "Minimize $\|\vec{w}\|$ subject to $y_i(\vec{w}\cdot\vec{x_i} - b) \ge 1$,  for $i = 1,\,\ldots,\,n$"
 
-![Hyperplane](https://upload.wikimedia.org/wikipedia/commons/2/20/Svm_separating_hyperplanes.png)
-![Support vector와 margin](https://upload.wikimedia.org/wikipedia/commons/2/2a/Svm_max_sep_hyperplane_with_margin.png)
+  ![](DE_on_hybrid.jpg)
 
-## Sequential minimal optimization ( SMO ) algorithm
-- SVM 구현 알고리즘
--
+  ![Support vector와 margin](https://upload.wikimedia.org/wikipedia/commons/2/2a/Svm_max_sep_hyperplane_with_margin.png)
 
-## 참고
+### 참고
 - https://en.wikipedia.org/wiki/Support_vector_machine
 - https://ko.wikipedia.org/wiki/서포트_벡터_머신
 - http://cs229.stanford.edu/notes/cs229-notes3.pdf
+- Christopher M. Bishop, Pattern Recognition and Machine Learning (Springer, 2006)
+
+## Sequential minimal optimization ( SMO ) algorithm
+- SVM 구현 알고리즘
 
 ![](https://upload.wikimedia.org/math/a/7/4/a745d413de81c293a28dde584c6717df.png)
+
+$\vec{w}\cdot\vec{x} - b=-1.\,$
 
 $$ R_{\mu \nu} - {1 \over 2}g_{\mu \nu}\,R + g_{\mu \nu} \Lambda
 = {8 \pi G \over c^4} T_{\mu \nu} $$
