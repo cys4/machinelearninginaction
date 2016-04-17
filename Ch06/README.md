@@ -14,9 +14,9 @@
   - Lagrange multiplier 이용
   > "Minimize $\|\vec{w}\|$ subject to $y_i(\vec{w}\cdot\vec{x_i} - b) \ge 1$,  for $i = 1,\,\ldots,\,n$"
 
-  ![](DE_on_hybrid.jpg)
+  ![](Svm_max_sep_hyperplane_with_margin.png
 
-  ![Support vector와 margin](https://upload.wikimedia.org/wikipedia/commons/2/2a/Svm_max_sep_hyperplane_with_margin.png)
+  <!-- ![Support vector와 margin](https://upload.wikimedia.org/wikipedia/commons/2/2a/Svm_max_sep_hyperplane_with_margin.png) -->
 
 ### 참고
 - https://en.wikipedia.org/wiki/Support_vector_machine
