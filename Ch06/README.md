@@ -5,21 +5,6 @@
 - 장: generalization 성능 좋다
 - 단: 기본적인 SVM은 이진 & 선형 분류만 지원 (여러 변형 통해 multinomial & 비선형 분류도 가능)
 
-<script>
-  <src="http://math.etsu.edu/LaTeXMathML/LaTeXMathML.js" type="text/javascript">
-</script>
-
-<p>
-  <span class="LaTeX">
-    $w\cdot x-b=0$
-  </span>
-</p>
-
-<table>
-    <tr>
-        <td>Foo</td>
-    </tr>
-</table>
 
 ## Training
 - 주어진 training data에 대해 margin을 최대화하는 classifier을 구함
@@ -71,6 +56,11 @@ def loadDataSet(fileName):
     int a;  
 ```
 
+<table>
+    <tr>
+        <td>Foo</td>
+    </tr>
+</table>
 
 |표|항목 1|항목 2 |
 |---|---|---|
