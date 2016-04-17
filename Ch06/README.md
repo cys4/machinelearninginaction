@@ -59,6 +59,7 @@ def loadDataSet(fileName):
 <table>
     <tr>
         <td>Foo</td>
+        <td>Bar</td>
     </tr>
 </table>
 
