@@ -12,7 +12,7 @@
   - Support vector: hyperplane에 가장 가까운 점들( $w\cdot x-b=1$, $w\cdot x-b=-1$ )
   - Margin: support vector와 hyperplane 사이의 거리 ( $\frac{2}{||w||}$ )
 - 다음의 constrained optimization 문제로 귀결됨
-  - Lagrange multiplier 이용
+  - Lagrange multiplier 적용(제약 았는 최적화를 제약 없는 최적화 문제로 바꾸어 해결)
   > "Minimize $\|\vec{w}\|$ subject to $y_i(\vec{w}\cdot\vec{x_i} - b) \ge 1$,  for $i = 1,\,\ldots,\,n$"
 
   ![](Svm_max_sep_hyperplane_with_margin.png)
