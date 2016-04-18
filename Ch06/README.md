@@ -5,6 +5,7 @@
 - 장: generalization 성능 좋다
 - 단: 기본적인 SVM은 이진 & 선형 분류만 지원 (여러 변형 통해 multinomial & 비선형 분류도 가능)
 
+[Link](README.md.html)
 
 ## Training
 - 주어진 training data에 대해 margin을 최대화하는 classifier을 구함

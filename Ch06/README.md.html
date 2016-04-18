@@ -3,6 +3,18 @@
   <head>
       <meta charset="utf-8" />
       <title>README</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: [],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    showMathMenu: false
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js">
+</script>
       <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); overflow: auto; background-color: rgb(40, 44, 52); }
 .markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
 .markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
@@ -23,8 +35,8 @@
 .markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
 .markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
 .markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(75, 83, 98); }
-.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
-.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
 .markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(75, 83, 98) rgb(75, 83, 98) rgb(62, 68, 81); background-color: rgb(58, 63, 75); }
 .markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
 .markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
@@ -96,10 +108,14 @@
 .markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
 .markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
 .markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
-.markdown-preview[data-use-github-style] code { color: inherit; }
-.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
 .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .horizontal-scrollbar { visibility: hidden; }
 .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .horizontal-scrollbar { visibility: visible; }
+.markdown-preview del { text-decoration: none; position: relative; }
+.markdown-preview del::after { border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; content: ""; left: 0px; position: absolute; right: 0px; top: 50%; }
+.markdown-preview .flash { animation: flash 1s ease-out 1; outline: rgba(255, 0, 0, 0) solid 1px; }
+.markdown-preview .flash:not(li) { display: block; }
 .bracket-matcher .region {
   border-bottom: 1px dotted lime;
   position: absolute;
@@ -473,46 +489,52 @@ pre.editor-colors .fold-marker:after,
 }
 </style>
   </head>
-  <body class='markdown-preview' data-use-github-style><h1 id="mlia-ch-6-support-vector-machines">MLiA Ch. 6: support vector machines</h1>
-<h2 id="-">개요</h2>
+  <body class='markdown-preview'><h1>MLiA Ch. 6: support vector machines</h1>
+<h2>개요</h2>
 <ul>
 <li>Supervised learning, (deep learning에 상대적으로) shallow learning의 대표적인 방법</li>
 <li>장: generalization 성능 좋다</li>
 <li>단: 기본적인 SVM은 이진 &amp; 선형 분류만 지원 (여러 변형 통해 multinomial &amp; 비선형 분류도 가능)</li>
 </ul>
-<h2 id="training">Training</h2>
+<p><a href="README.html">Link</a></p>
+<h2>Training</h2>
 <ul>
-<li>주어진 training data에 대해 margin을 최대화하는 classifier을 구함<ul>
-<li>Hyperplane: 분류 경계 형성하는 (n-1) 차원의 선형 이진 classifier($w\cdot x-b=0$)</li>
-<li>Support vector: hyperplane에 가장 가까운 점들($w\cdot x-b=1$, $w\cdot x-b=-1$)</li>
-<li>Margin: support vector와 hyperplane 사이의 거리 ($2 \over ||w||$)</li>
+<li>
+<p>주어진 training data에 대해 margin을 최대화하는 classifier을 구함</p>
+<ul>
+<li>Hyperplane: 분류 경계 형성하는 (n-1) 차원의 선형 이진 classifier( <span class="math"><script type="math/tex">w\cdot x-b=0</script></span> )</li>
+<li>Support vector: hyperplane에 가장 가까운 점들( <span class="math"><script type="math/tex">w\cdot x-b=1</script></span>, <span class="math"><script type="math/tex">w\cdot x-b=-1</script></span> )</li>
+<li>Margin: support vector와 hyperplane 사이의 거리 ( <span class="math"><script type="math/tex">\frac{2}{||w||}</script></span> )</li>
 </ul>
 </li>
-<li><p>다음의 constrained optimization 문제로 귀결됨</p>
+<li>
+<p>다음의 constrained optimization 문제로 귀결됨</p>
 <ul>
-<li>Lagrange multiplier 이용<blockquote>
-<p>&quot;Minimize $|\vec{w}|$ subject to $y_i(\vec{w}\cdot\vec{x_i} - b) \ge 1$,  for $i = 1,\,\ldots,\,n$&quot;</p>
+<li>Lagrange multiplier 이용</li>
+</ul>
+<blockquote>
+<p>&quot;Minimize <span class="math"><script type="math/tex">\|\vec{w}\|</script></span> subject to <span class="math"><script type="math/tex">y_i(\vec{w}\cdot\vec{x_i} - b) \ge 1</script></span>,  for <span class="math"><script type="math/tex">i = 1,\,\ldots,\,n</script></span>&quot;</p>
 </blockquote>
+<p><img src="/home/cys4/machine_learning/machinelearninginaction/Ch06/Svm_max_sep_hyperplane_with_margin.png?v=1460898633154" alt=""></p>
+<!-- ![Support vector와 margin](https://upload.wikimedia.org/wikipedia/commons/2/2a/Svm_max_sep_hyperplane_with_margin.png) -->
 </li>
 </ul>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Svm_max_sep_hyperplane_with_margin.png" alt="Support vector&#xC640; margin"></p>
-</li>
-</ul>
-<h3 id="-">참고</h3>
+<h3>참고</h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Support_vector_machine">https://en.wikipedia.org/wiki/Support_vector_machine</a></li>
-<li><a href="https://ko.wikipedia.org/wiki/&#xC11C;&#xD3EC;&#xD2B8;_&#xBCA1;&#xD130;_&#xBA38;&#xC2E0;">https://ko.wikipedia.org/wiki/서포트_벡터_머신</a></li>
+<li><a href="https://ko.wikipedia.org/wiki/%EC%84%9C%ED%8F%AC%ED%8A%B8_%EB%B2%A1%ED%84%B0_%EB%A8%B8%EC%8B%A0">https://ko.wikipedia.org/wiki/서포트_벡터_머신</a></li>
+<li><a href="https://ko.wikipedia.org/wiki/%EB%9D%BC%EA%B7%B8%EB%9E%91%EC%A3%BC_%EC%8A%B9%EC%88%98%EB%B2%95">https://ko.wikipedia.org/wiki/라그랑주_승수법</a></li>
 <li><a href="http://cs229.stanford.edu/notes/cs229-notes3.pdf">http://cs229.stanford.edu/notes/cs229-notes3.pdf</a></li>
 <li>Christopher M. Bishop, Pattern Recognition and Machine Learning (Springer, 2006)</li>
 </ul>
-<h2 id="sequential-minimal-optimization-smo-algorithm">Sequential minimal optimization ( SMO ) algorithm</h2>
+<h2>Sequential minimal optimization ( SMO ) algorithm</h2>
 <ul>
 <li>SVM 구현 알고리즘</li>
 </ul>
 <p><img src="https://upload.wikimedia.org/math/a/7/4/a745d413de81c293a28dde584c6717df.png" alt=""></p>
-<p>$\vec{w}\cdot\vec{x} - b=-1.\,$</p>
-<p>$$ R<em>{\mu \nu} - {1 \over 2}g</em>{\mu \nu}\,R + g<em>{\mu \nu} \Lambda
-= {8 \pi G \over c^4} T</em>{\mu \nu} $$</p>
+<p><span class="math"><script type="math/tex">\vec{w}\cdot\vec{x} - b=-1.\,</script></span></p>
+<span class="math"><script type="math/tex; mode=display"> R_{\mu \nu} - {1 \over 2}g_{\mu \nu}\,R + g_{\mu \nu} \Lambda
+= {8 \pi G \over c^4} T_{\mu \nu} </script></span>
 <blockquote>
 <p>Quote</p>
 <blockquote>
@@ -520,7 +542,12 @@ pre.editor-colors .fold-marker:after,
 </blockquote>
 <p>Out of the nest</p>
 </blockquote>
-<pre class="editor-colors lang-python"><div class="line"><span class="source python"><span class="keyword control import from python"><span>from</span></span><span>&nbsp;</span><span>numpy</span><span>&nbsp;</span><span class="keyword control import python"><span>import</span></span><span>&nbsp;</span><span class="keyword operator arithmetic python"><span>*</span></span></span></div><div class="line"><span class="source python"><span class="keyword control import from python"><span>from</span></span><span>&nbsp;</span><span>time</span><span>&nbsp;</span><span class="keyword control import python"><span>import</span></span><span>&nbsp;</span><span>sleep</span></span></div><div class="line"><span class="source python"><span>&nbsp;</span></span></div><div class="line"><span class="source python"><span class="meta function python"><span class="storage type function python"><span>def</span></span><span>&nbsp;</span><span class="entity name function python"><span>loadDataSet</span></span><span class="punctuation definition parameters begin python"><span>(</span></span><span class="meta function parameters python"><span class="variable parameter function python"><span>fileName</span></span></span><span class="punctuation definition parameters end python"><span>)</span></span><span class="punctuation section function begin python"><span>:</span></span></span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>dataMat</span><span>&nbsp;</span><span class="keyword operator assignment python"><span>=</span></span><span>&nbsp;</span><span class="meta structure list python"><span class="punctuation definition list begin python"><span>[</span></span><span class="punctuation definition list end python"><span>]</span></span></span><span>;&nbsp;</span><span>labelMat</span><span>&nbsp;</span><span class="keyword operator assignment python"><span>=</span></span><span>&nbsp;</span><span class="meta structure list python"><span class="punctuation definition list begin python"><span>[</span></span><span class="punctuation definition list end python"><span>]</span></span></span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>fr</span><span>&nbsp;</span><span class="keyword operator assignment python"><span>=</span></span><span>&nbsp;</span><span class="meta function-call python"><span class="support function builtin python"><span>open</span></span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span>fileName</span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control repeat python"><span>for</span></span><span>&nbsp;</span><span>line</span><span>&nbsp;</span><span class="keyword operator logical python"><span>in</span></span><span>&nbsp;</span><span class="meta function-call python"><span>fr</span><span>.</span><span>readlines</span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="punctuation definition arguments end python"><span>)</span></span></span><span>:</span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>lineArr</span><span>&nbsp;</span><span class="keyword operator assignment python"><span>=</span></span><span>&nbsp;</span><span class="meta function-call python"><span>line</span><span>.</span><span>strip</span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="punctuation definition arguments end python"><span>)</span></span></span><span>.</span><span class="meta function-call python"><span>s</span><span>plit</span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="string quoted single single-line python"><span class="punctuation definition string begin python"><span>&#39;</span></span><span class="constant character escape tab python"><span>\t</span></span><span class="punctuation definition string end python"><span>&#39;</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta function-call python"><span>dataMat</span><span>.</span><span>append</span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="meta structure list python"><span class="punctuation definition list begin python"><span>[</span></span><span class="meta structure list item python"><span class="meta function-call python"><span class="support function builtin python"><span>float</span></span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="meta item-access python"><span>lineArr</span><span class="punctuation definition arguments begin python"><span>[</span></span><span class="meta item-access arguments python"><span class="constant numeric integer decimal python"><span>0</span></span></span><span class="punctuation definition arguments end python"><span>]</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span><span class="punctuation separator list python"><span>,</span></span><span>&nbsp;</span><span class="meta structure list item python"><span class="meta function-call python"><span class="support function builtin python"><span>float</span></span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="meta item-access python"><span>lineArr</span><span class="punctuation definition arguments begin python"><span>[</span></span><span class="meta item-access arguments python"><span class="constant numeric integer decimal python"><span>1</span></span></span><span class="punctuation definition arguments end python"><span>]</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span><span class="punctuation definition list end python"><span>]</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta function-call python"><span>labelMat</span><span>.</span><span>append</span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="meta function-call python"><span class="support function builtin python"><span>float</span></span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="meta item-access python"><span>lineArr</span><span class="punctuation definition arguments begin python"><span>[</span></span><span class="meta item-access arguments python"><span class="constant numeric integer decimal python"><span>2</span></span></span><span class="punctuation definition arguments end python"><span>]</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control statement python"><span>return</span></span><span>&nbsp;</span><span>dataMat</span><span>,</span><span>labelMat</span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="support function builtin python"><span>int</span></span><span>&nbsp;</span><span>a</span><span>;</span></span></div></pre>
+<pre class="editor-colors lang-python"><div class="line"><span class="source python"><span class="keyword control import from python"><span>from</span></span><span>&nbsp;</span><span>numpy</span><span>&nbsp;</span><span class="keyword control import python"><span>import</span></span><span>&nbsp;</span><span class="keyword operator arithmetic python"><span>*</span></span></span></div><div class="line"><span class="source python"><span class="keyword control import from python"><span>from</span></span><span>&nbsp;</span><span>time</span><span>&nbsp;</span><span class="keyword control import python"><span>import</span></span><span>&nbsp;</span><span>sleep</span></span></div><div class="line"><span class="source python"><span>&nbsp;</span></span></div><div class="line"><span class="source python"><span class="meta function python"><span class="storage type function python"><span>def</span></span><span>&nbsp;</span><span class="entity name function python"><span>loadDataSet</span></span><span class="punctuation definition parameters begin python"><span>(</span></span><span class="meta function parameters python"><span class="variable parameter function python"><span>fileName</span></span></span><span class="punctuation definition parameters end python"><span>)</span></span><span class="punctuation section function begin python"><span>:</span></span></span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>dataMat</span><span>&nbsp;</span><span class="keyword operator assignment python"><span>=</span></span><span>&nbsp;</span><span class="meta structure list python"><span class="punctuation definition list begin python"><span>[</span></span><span class="punctuation definition list end python"><span>]</span></span></span><span>;&nbsp;</span><span>labelMat</span><span>&nbsp;</span><span class="keyword operator assignment python"><span>=</span></span><span>&nbsp;</span><span class="meta structure list python"><span class="punctuation definition list begin python"><span>[</span></span><span class="punctuation definition list end python"><span>]</span></span></span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>fr</span><span>&nbsp;</span><span class="keyword operator assignment python"><span>=</span></span><span>&nbsp;</span><span class="meta function-call python"><span class="support function builtin python"><span>open</span></span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span>fileName</span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control repeat python"><span>for</span></span><span>&nbsp;</span><span>line</span><span>&nbsp;</span><span class="keyword operator logical python"><span>in</span></span><span>&nbsp;</span><span class="meta function-call python"><span>fr</span><span>.</span><span>readlines</span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="punctuation definition arguments end python"><span>)</span></span></span><span>:</span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>lineArr</span><span>&nbsp;</span><span class="keyword operator assignment python"><span>=</span></span><span>&nbsp;</span><span class="meta function-call python"><span>line</span><span>.</span><span>strip</span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="punctuation definition arguments end python"><span>)</span></span></span><span>.</span><span class="meta function-call python"><span>s</span><span>plit</span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="string quoted single single-line python"><span class="punctuation definition string begin python"><span>&#39;</span></span><span class="constant character escape tab python"><span>\t</span></span><span class="punctuation definition string end python"><span>&#39;</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta function-call python"><span>dataMat</span><span>.</span><span>append</span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="meta structure list python"><span class="punctuation definition list begin python"><span>[</span></span><span class="meta structure list item python"><span class="meta function-call python"><span class="support function builtin python"><span>float</span></span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="meta item-access python"><span>lineArr</span><span class="punctuation definition arguments begin python"><span>[</span></span><span class="meta item-access arguments python"><span class="constant numeric integer decimal python"><span>0</span></span></span><span class="punctuation definition arguments end python"><span>]</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span><span class="punctuation separator list python"><span>,</span></span><span>&nbsp;</span><span class="meta structure list item python"><span class="meta function-call python"><span class="support function builtin python"><span>float</span></span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="meta item-access python"><span>lineArr</span><span class="punctuation definition arguments begin python"><span>[</span></span><span class="meta item-access arguments python"><span class="constant numeric integer decimal python"><span>1</span></span></span><span class="punctuation definition arguments end python"><span>]</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span><span class="punctuation definition list end python"><span>]</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta function-call python"><span>labelMat</span><span>.</span><span>append</span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="meta function-call python"><span class="support function builtin python"><span>float</span></span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="meta item-access python"><span>lineArr</span><span class="punctuation definition arguments begin python"><span>[</span></span><span class="meta item-access arguments python"><span class="constant numeric integer decimal python"><span>2</span></span></span><span class="punctuation definition arguments end python"><span>]</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control statement python"><span>return</span></span><span>&nbsp;</span><span>dataMat</span><span>,</span><span>labelMat</span></span></div><div class="line"><span class="source python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="support function builtin python"><span>int</span></span><span>&nbsp;</span><span>a</span><span>;&nbsp;&nbsp;</span></span></div></pre>
+<table>
+    <tr>
+        <td>Foo</td>
+    </tr>
+</table>
 <table>
 <thead>
 <tr>
